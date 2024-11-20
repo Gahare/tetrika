@@ -12,24 +12,15 @@ class TestStringMethods(unittest.TestCase):
                 print("Testing sum of " + str(i) + " and " + str(j))
                 with self.assertRaises(TypeError):
                     result = solution.sum_two(i,j)
-                if result == True:
-                    print ("OK")
-                
-    """
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
-
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
-
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
-    """
+        for i in falseVariants:
+            for j in falseVariants:
+                print("Testing sum of " + str(i) + " and " + str(j))
+                with self.assertRaises(TypeError):
+                    result = solution.sum_two(i,j)
+        for i in trueVariants:
+            for j in trueVariants:
+                print("Testing sum of " + str(i) + " and " + str(j))
+                self.assertEqual(solution.sum_two(i,j),i+j)
 
 if __name__ == '__main__':
     unittest.main()
